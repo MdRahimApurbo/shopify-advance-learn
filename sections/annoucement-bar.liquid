@@ -18,13 +18,36 @@
             src="{{ 'annoucement-bar-logo.png' | asset_url }}"
           >
         {% endif %}
+        {% if section.settings.image_2 != blank %}
+          <img
+            src="{{ section.settings.image_2 | image_url: width: 100 }}"
+            alt="{{ section.settings.image_2.alt }}"
+            width="40"
+            height="40"
+            loading="lazy"
+          >
+        {% else %}
+          <img
+            width="40"
+            height="40"
+            loading="lazy"
+            src="{{ 'annoucement-bar-logo.png' | asset_url }}"
+          >
+        {% endif %}
       </div>
+
       <div class="annoucement-bar-right-section">
         <p>{{ section.settings.annoucement_text }}</p>
       </div>
     </div>
   </section>
 {% endif %}
+<style>
+  .annoucement-bar {
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+  }
+</style>
 
 {% schema %}
 {
@@ -41,6 +64,24 @@
       "id": "image",
       "label": "Image",
       "info": "This image will be displayed on the left side of the annoucement bar"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2",
+      "info": "This image will be displayed on the right side of the annoucement bar"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "info": "This color will be displayed on the left side of the annoucement bar"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "info": "This color will be displayed on the right side of the annoucement bar"
     }
   ],
   "presets": []
