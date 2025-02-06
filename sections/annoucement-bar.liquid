@@ -11,11 +11,13 @@
             loading="lazy"
           >
         {% else %}
+          {% assign logo_url = section.settings.image | image_url: width: 100 %}
           <img
             width="40"
             height="40"
             loading="lazy"
-            src="{{ 'annoucement-bar-logo.png' | asset_url }}"
+            src="{{ logo_url | default: 'annoucement-bar-logo.png' | asset_url }}"
+            alt="{{ section.settings.image.alt }}"
           >
         {% endif %}
         {% if section.settings.image_2 != blank %}
@@ -27,11 +29,13 @@
             loading="lazy"
           >
         {% else %}
+          {% assign image_2 = section.settings.image_2 | image_url: width: 100 %}
           <img
             width="40"
             height="40"
             loading="lazy"
-            src="{{ 'annoucement-bar-logo.png' | asset_url }}"
+            src="{{ image_2 | default: 'annoucement-bar-logo.png' | asset_url }}"
+            alt="{{ section.settings.image_2.alt }}"
           >
         {% endif %}
       </div>
