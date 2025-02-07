@@ -41,7 +41,24 @@
       </div>
 
       <div class="annoucement-bar-right-section">
-        <p>{{ section.settings.annoucement_text }}</p>
+        <ul class="annoucement-bar-inner-list">
+          {% if section.blocks.size > 0 %}
+            <li><a href="#">Help</a></li>
+            {% if shop.customer_accounts_enabled %}
+              {% if customer %}
+                <li><a href="/account">Account</a></li>
+              {% else %}
+                <li><a href="/account/login">Sign In</a></li>
+              {% endif %}
+            {% endif %}
+          {% else %}
+            {% for block in section.blocks %}
+              <li>
+                <a href="{{ block.settings.link }}">{{ block.settings.text }}</a>
+              </li>
+            {% endfor %}
+          {% endif %}
+        </ul>
       </div>
     </div>
   </section>
@@ -85,6 +102,19 @@
       "id": "text_color",
       "label": "Text Color",
       "default": "#000000"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "annoucement_text",
+      "name": "Annoucement Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
     }
   ],
   "presets": []
