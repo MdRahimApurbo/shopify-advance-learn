@@ -129,17 +129,6 @@
     "sections": {
       "annoucement-bar": {
         "type": "annoucement-bar",
-        "blocks": {
-          "annoucement_text_jNedi3": {
-            "type": "annoucement_text",
-            "settings": {
-              "text": ""
-            }
-          }
-        },
-        "block_order": [
-          "annoucement_text_jNedi3"
-        ],
         "settings": {
           "show_annoucement": true,
           "background_color": "#f4f4f4",
