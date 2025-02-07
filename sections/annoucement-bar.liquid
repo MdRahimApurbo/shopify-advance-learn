@@ -14,7 +14,7 @@
           {% assign logo_url = section.settings.image | image_url: width: 100 %}
           <img
             width="100"
-            height="40"
+            height="60"
             loading="lazy"
             src="{{ logo_url | default: 'annoucement-bar-logo.png' | asset_url }}"
             alt="{{ section.settings.image.alt }}"
@@ -25,14 +25,14 @@
             src="{{ section.settings.image_2 | image_url: width: 100 }}"
             alt="{{ section.settings.image_2.alt }}"
             width="100"
-            height="40"
+            height="60"
             loading="lazy"
           >
         {% else %}
           {% assign image_2 = section.settings.image_2 | image_url: width: 100 %}
           <img
-            width="40"
-            height="40"
+            width="100"
+            height="60"
             loading="lazy"
             src="{{ image_2 | default: 'annoucement-bar-logo.png' | asset_url }}"
             alt="{{ section.settings.image_2.alt }}"
