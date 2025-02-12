@@ -2,9 +2,11 @@
   <head>
     {{ content_for_header }}
     {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ 'tailwind.output.css' | asset_url | stylesheet_tag }}
   </head>
   <body>
     {% section 'annoucement-bar' %}
+    {% section 'header' %}
     <main id="main-content" role="main">
       {{ content_for_layout }}
     </main>
