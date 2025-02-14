@@ -4,7 +4,7 @@
     {{ 'theme.css' | asset_url | stylesheet_tag }}
     {{ 'tailwind.output.css' | asset_url | stylesheet_tag }}
   </head>
-  <body>
+  <body class="font-sans">
     {% section 'annoucement-bar' %}
     {% section 'header' %}
     <main id="main-content" role="main">

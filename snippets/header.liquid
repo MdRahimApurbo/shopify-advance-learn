@@ -1,1 +1,32 @@
-<h2>Header</h2>
+<header class="header-nav flex flex-row justify-between items-center p-4 bg-white">
+  <div>
+    <a href="/">
+      <img
+        width="80"
+        height="50"
+        src="{{ 'nike.png' | asset_url }}"
+      >
+    </a>
+  </div>
+  <div>
+    <ul class="middlea-nav-bar flex flex-row gap-2 text-base font-semibold">
+      {% for link in linklists['main-menu'].links %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="right-nav-tems flex flex-row gap-2 items-center">
+    <form accept="GET" action="/search" method="GET">
+      <input class="search-input border-1 shadow-sm px-2 rounded-lg" type="text" name="q" placeholder="Search">
+    </form>
+    <a href="/cart">
+      <img
+        width="30"
+        height="30"
+        src="{{ 'd.png' | asset_url }}"
+      >
+    </a>
+  </div>
+</header>

@@ -1,14 +1,71 @@
 <section>
-  <div class="banner">
-    <div class="banner__content">
-      <h1>Banner</h1>
-    </div>
+  <div class="banner-wrapper relative py-10">
+    <div class="slide-text" id="text1"><p>Member: Free Shipping!</p></div>
+    <div class="slide-text" id="text2"><p>Save up to 40%</p></div>
+    <div class="slide-text" id="text3"><p>Get Your Gear faster</p></div>
   </div>
 </section>
+
+<style>
+  .banner-wrapper {
+    background: {{ section.settings.background }};
+    color: {{ section.settings.title_color }};
+    padding: 20px;
+  }
+  .slide-text {
+    position: absolute;
+    top: 5px;
+    left: -150%;
+    transform: translateX(0 , -50%);
+    font-size: 20px;
+    transition: left 0.5s ease-in-out;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    let text1 = document.getElementById('text1');
+    let text2 = document.getElementById('text2');
+    let text3 = document.getElementById('text3');
+    let texts = [text1, text2, text3];
+    let currentIndex = 0;
+
+    function slideToMiddle(element) {
+      element.style.left = '50%';
+    }
+
+    function resetPosition(element) {
+      element.style.left = '-100%';
+    }
+
+    function slide() {
+      resetPosition(texts[currentIndex]);
+      currentIndex = (currentIndex + 1) % texts.length;
+      slideToMiddle(texts[currentIndex]);
+    }
+
+    slideToMiddle(texts[currentIndex]);
+
+    setInterval(slide, 3000);
+  });
+</script>
+
 {% schema %}
 {
   "name": "Banner",
-  "settings": [],
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#f4f4f4"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#000000"
+    }
+  ],
   "presets": [
     {
       "name": "Banner"
