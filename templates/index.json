@@ -20,7 +20,21 @@
     "more-info": {
       "type": "more-info",
       "settings": {}
+    },
+    "all-collections": {
+      "type": "all-collections",
+      "settings": {}
+    },
+    "all-products": {
+      "type": "all-products",
+      "settings": {}
     }
   },
-  "order": ["banner", "three-images", "more-info"]
+  "order": [
+    "banner",
+    "three-images",
+    "more-info",
+    "all-collections",
+    "all-products"
+  ]
 }

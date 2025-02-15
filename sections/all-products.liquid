@@ -1,0 +1,47 @@
+<section>
+  <div>
+    <h1>{{ section.settings.title }}</h1>
+    <div class="product-container">
+      {% for product in collections['all-products'].products %}
+        <div class="product">
+          <a href="{{ product.url }}">
+            <h2>{{ product.title }}</h2>
+            <p>{{ product.price | money }}</p>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "All Products",
+  "settings": [
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "All Products"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "All Products"
+    }
+  ]
+}
+{% endschema %}
