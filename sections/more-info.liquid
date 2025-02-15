@@ -1,0 +1,58 @@
+<section class="flex justify-center items-center">
+  <div class="more-info-wrapper space-y-4 py-20 text-2xl text-center">
+    {% if section.settings.text != blank %}
+      <h1>{{ section.settings.title }}</h1>
+    {% endif %}
+
+    {% if section.settings.content != blank %}
+      <p>{{ section.settings.content }}</p>
+    {% endif %}
+
+    <button class="border-b-purple-400 p-4 ">Shop</button>
+  </div>
+</section>
+
+<style>
+  .more-info-wrapper {
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+  }
+</style>
+
+{% schema %}
+{
+  "name": "More Info",
+  "settings": [
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "More Info"
+    },
+    {
+      "type": "text",
+      "id": "content",
+      "label": "Content",
+      "default": "This is a section where you can add more information about your product."
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "More Info"
+    }
+  ]
+}
+{% endschema %}

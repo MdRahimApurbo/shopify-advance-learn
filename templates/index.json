@@ -16,7 +16,11 @@
     "three-images": {
       "type": "three-images",
       "settings": {}
+    },
+    "more-info": {
+      "type": "more-info",
+      "settings": {}
     }
   },
-  "order": ["banner", "three-images"]
+  "order": ["banner", "three-images", "more-info"]
 }
